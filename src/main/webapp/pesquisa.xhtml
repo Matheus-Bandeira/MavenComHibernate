@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form id="formListar">
+		<p:dataTable value="#{pesquisaPessoaBean.pessoas}" var="pessoa">
+		
+			<p:column headerText="Nome">
+				<h:outputText value="#{pessoa.nome}" />
+			</p:column>
+			
+			<p:column headerText="Email">
+				<h:outputText value="#{pessoa.email}" />
+			</p:column>
+			
+			<p:column headerText="Opções">
+				<p:commandButton icon="ui-icon-pencil" update=":formEditar" onclick="PF('dialogo').show()" ajax="true">
+					<f:setPropertyActionListener value="#{pessoa}" target="#{pesquisaPessoaBean.pessoaSelecionada}"></f:setPropertyActionListener>
+				</p:commandButton>
+				<p:commandButton icon="ui-icon-trash" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	
+	<h:form id="formEditar">
+		<p:dialog header="Editar Pessoas" widgetVar="dialogo">
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Nome" />
+				<p:inputText value="#{pesquisaPessoaBean.pessoaSelecionada.nome}"/>
+			</p:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body>
+
+</html>

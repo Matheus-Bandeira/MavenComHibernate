@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+	<style>
+#panel {
+	position: absolute;
+	left: 37%;
+	top: 37%
+}
+</style>
+
+</h:head>
+<h:body style="background-color: #e1e1e1">
+
+	<b:panel title="Login" style="width:30% " collapsible="false"
+		look="primary" id="panel">
+		<h:form>
+			<b:row>
+				<b:column col-sm="10">
+					<b:inputText placeholder="Username">
+						<f:facet name="prepend">
+							<b:icon name="user"></b:icon>
+						</f:facet>
+					</b:inputText>
+				</b:column>
+			</b:row>
+			
+			<b:row>
+				<b:column col-sm="10">
+					<b:inputSecret placeholder="Password">
+						<f:facet name="prepend">
+							<b:icon name="lock"></b:icon>
+						</f:facet>
+					</b:inputSecret>
+				</b:column>
+			</b:row>
+
+			<b:row>
+				<b:column col-md="10">
+					<b:commandButton value="Entrar" look="primary" style="width:100%"></b:commandButton>
+				</b:column>
+			</b:row>
+		</h:form>
+	</b:panel>
+
+</h:body>
+</html>
